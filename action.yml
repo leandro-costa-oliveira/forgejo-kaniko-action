@@ -14,10 +14,10 @@ inputs:
     required: true
   username:
     description: Username for the container registry
-    required: false
+    required: true
   password:
     description: Password for the container registry
-    required: false
+    required: true
 runs:
   using: docker
   image: docker://gcr.io/kaniko-project/executor:debug
