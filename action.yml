@@ -22,11 +22,12 @@ runs:
   using: docker
   image: docker://gcr.io/kaniko-project/executor:debug
   entrypoint: /bin/sh
-  steps:
-    - run: |
-        mkdir -p /kaniko/.docker
-        echo '{"auths":{"${{ inputs.registry }}":{"auth":"'$(printf "%s:%s" "${{ inputs.username }}" "${{ inputs.password }}" | base64 | tr -d '\n')'"}}}' > /kaniko/.docker/config.json
-        cat > /tmp/Dockerfile <<EOF
-        ${{ inputs.Dockerfile }}
-        EOF
-        /kaniko/executor --dockerfile /tmp/Dockerfile --destination ${{ inputs.image }}
+  args:
+    - -c
+    - |
+      mkdir -p /kaniko/.docker
+      echo '{"auths":{"${{ inputs.registry }}":{"auth":"'$(printf "%s:%s" "${{ inputs.username }}" "${{ inputs.password }}" | base64 | tr -d '\n')'"}}}' > /kaniko/.docker/config.json
+      cat > /tmp/Dockerfile <<EOF
+      ${{ inputs.Dockerfile }}
+      EOF
+      /kaniko/executor --dockerfile /tmp/Dockerfile --destination ${{ inputs.image }}
