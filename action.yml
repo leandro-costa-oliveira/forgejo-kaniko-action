@@ -38,4 +38,4 @@ runs:
         exit 1
       fi
 
-      /kaniko/executor --dockerfile Dockerfile --destination "${{ inputs.image }}"
+      /kaniko/executor --dockerfile Dockerfile --context $GITHUB_WORKSPACE --destination "${{ inputs.image }}"
