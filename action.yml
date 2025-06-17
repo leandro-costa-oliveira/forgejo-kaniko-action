@@ -1,5 +1,4 @@
 ---
-
 name: Kaniko
 description: Build a container image using Kaniko
 inputs:
@@ -11,7 +10,8 @@ inputs:
     required: true
   registry:
     description: Domain of the registry. Should be the same as the first path component of the tag.
-    required: true
+    required: false
+    default: https://index.docker.io/v1/
   username:
     description: Username for the container registry
     required: true
