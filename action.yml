@@ -38,4 +38,11 @@ runs:
         exit 1
       fi
 
-      /kaniko/executor --dockerfile Dockerfile --context $GITHUB_WORKSPACE --destination "${{ inputs.image }}"
+      dest_flags=""
+      for dest in $(echo "${{ inputs.image }}" | tr ',' ' '); do
+        dest_flags="$dest_flags --destination=$dest"
+      done
+
+      echo "Destinations: $dest_flags"
+
+      /kaniko/executor --dockerfile Dockerfile --context $GITHUB_WORKSPACE $dest_flags
