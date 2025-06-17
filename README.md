@@ -1,6 +1,6 @@
 # Kaniko Action
 
-Build OCI images using Kaniko, with the Dockerfile contents provided directly as an action input.
+Build OCI images using Kaniko.
 
 ## Usage
 
@@ -35,3 +35,8 @@ jobs:
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
 ```
+
+### Credits
+
+Original creator of the action v1:
+https://git.kabelsalat.ch/s3lph/forgejo-kaniko-action

@@ -1,6 +1,9 @@
 ---
 name: Forgejo Kaniko
 description: Build a container image using Kaniko
+branding:
+  icon: anchor
+  color: blue
 inputs:
   dockerfile:
     description: The Dockerfile to pass to Kaniko
