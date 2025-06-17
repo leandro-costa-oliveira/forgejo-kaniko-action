@@ -29,7 +29,7 @@ jobs:
   cowsay:
     runs-on: docker
     steps:
-      - uses: https://git.kabelsalat.ch/s3lph/forgejo-kaniko-action@v1
+      - uses: https://github.com/leandro-costa-oliveira/forgejo-kaniko-action@v2
         with:
           image: my-user/test-image:latest,my-user/test-image:${{ github.sha }}
           username: ${{ secrets.REGISTRY_USERNAME }}

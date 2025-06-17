@@ -1,5 +1,5 @@
 ---
-name: Kaniko
+name: Forgejo Kaniko
 description: Build a container image using Kaniko
 inputs:
   dockerfile:
